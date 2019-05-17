@@ -1,0 +1,32 @@
+.Footer {
+    font-size: 1em;
+    padding: 0.25em 0.75em 0.75em;
+}
+
+.Footer-container {
+    display: flex;
+    flex-direction: column;
+    border-top: #DDDDDD 2px solid;
+    padding-top: 0.25em
+}
+
+.Footer-attribution {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.Footer-credit {
+    flex-grow: 0;
+    margin-top: 0.25em;
+    text-align: left;
+}
+
+@media (min-width: 600px) {
+    .Footer div {
+        flex-direction: row
+    }
+    .credit {
+        text-align: right;
+        margin-top: 0;
+    }
+}
