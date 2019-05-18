@@ -77,7 +77,7 @@ resource "aws_route53_record" "api-dns-a-record" {
 
   alias {
     evaluate_target_health = false
-    name = "${aws_s3_bucket.bucket.website_endpoint}"
+    name = "${aws_s3_bucket.bucket.website_domain}"
     zone_id = "${aws_s3_bucket.bucket.hosted_zone_id}"
   }
 }
@@ -89,7 +89,7 @@ resource "aws_route53_record" "api-dns-aaaa-record" {
 
   alias {
     evaluate_target_health = false
-    name = "${aws_s3_bucket.bucket.website_endpoint}"
+    name = "${aws_s3_bucket.bucket.website_domain}"
     zone_id = "${aws_s3_bucket.bucket.hosted_zone_id}"
   }
 }
