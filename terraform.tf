@@ -45,6 +45,27 @@ resource "aws_s3_bucket" "bucket" {
   force_destroy = "true"
 }
 
+resource "aws_s3_bucket_policy" "public-access" {
+  bucket = "${var.bucket_name}"
+
+  depends_on = ["aws_s3_bucket.bucket"]
+
+  policy = <<POLICY
+{
+  "Version":"2012-10-17",
+  "Statement":[{
+	"Sid":"PublicReadGetObject",
+        "Effect":"Allow",
+	  "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::${var.bucket_name}/*"
+      ]
+    }
+  ]
+}
+POLICY
+}
+
 data "aws_route53_zone" "domain-root" {
   name = "${var.domain}"
 }
