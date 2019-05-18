@@ -49,6 +49,11 @@ jobs:
           at: ~/
 
       - run:
+          name: Delete current site content from S3 bucket
+          command: aws s3 rm --recursive s3://$BUCKET_NAME/*
+
+      - run:
+          name: Upload new site content to S3 bucket
           command: aws s3 cp ~/build/* s3://$BUCKET_NAME/
 
 workflows:
