@@ -49,7 +49,7 @@ jobs:
           at: ~/
 
       - run:
-          command: aws s3 cp ./build/* s3://$BUCKET_NAME/
+          command: aws s3 cp ~/build/* s3://$BUCKET_NAME/
 
 workflows:
   version: 2.1
