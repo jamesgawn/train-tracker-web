@@ -91,7 +91,7 @@ resource "aws_iam_policy" "circle-ci-deploy-access" {
                 "s3:ListBucket",
                 "s3:DeleteObject"
             ],
-            "Resource": "arn:aws:s3:::arn:aws:s3:::${var.bucket_name}"
+            "Resource": ["arn:aws:s3:::${var.bucket_name}", "arn:aws:s3:::${var.bucket_name}/*"]
         }
     ]
 }
