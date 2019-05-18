@@ -1,0 +1,57 @@
+version: 2.1
+
+executors:
+  my-executor:
+    docker:
+      - image: circleci/node:10.15.3
+    working_directory: ~/repo
+
+jobs:
+  build:
+    executor: my-executor
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: Create production bundle
+          command: yarn build
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - repo
+
+  deploy:
+
+    docker:
+      - image: jamesgawn/awscli
+
+    working_directory: /data
+
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run:
+          command: aws s3 cp ./build/* s3://BUCKET_NAME/
+
+workflows:
+  version: 2.1
+  build-test-lint:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
