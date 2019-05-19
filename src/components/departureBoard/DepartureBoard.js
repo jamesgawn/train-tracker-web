@@ -22,7 +22,7 @@ class DepartureBoard extends React.Component {
         board: null
       })
       let apiEndpoint = process.env.REACT_APP_TRAIN_TRACKER_API_ENDPOINT
-      let board = await Axios.get(apiEndpoint + '/departureBoard/' + this.props.origin.code + '/' + this.props.destination.code)
+      let board = await Axios.get(apiEndpoint + '/departureBoard/' + this.props.origin + '/' + this.props.destination)
       this.setState({
         board: board.data.data.trainServices,
         loading: false
