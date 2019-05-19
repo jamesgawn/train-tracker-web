@@ -1,0 +1,26 @@
+.DepartureBoard {
+    padding: 0.75em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.DepartureBoard-trainService td {
+    padding: 0.25em
+}
+
+.DepartureBoard-trainService-std {
+
+}
+
+.DepartureBoard-trainService-etd {
+
+}
+
+.DepartureBoard-trainService-platform {
+    text-align: center;
+}
+
+.DepartureBoard-trainService-destination {
+
+}
