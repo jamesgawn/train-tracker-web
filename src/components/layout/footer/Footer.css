@@ -25,7 +25,7 @@
     .Footer div {
         flex-direction: row
     }
-    .credit {
+    .Footer-credit {
         text-align: right;
         margin-top: 0;
     }

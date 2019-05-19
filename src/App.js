@@ -8,8 +8,22 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      stationName: 'Unknown',
-      name: process.env.NAME
+      origin: {
+        "code": "GNW",
+        "name": "Greenwich",
+        "longitude": 0,
+        "latitude": 0,
+        "postcode": "SE10 8JQ",
+        "operator": "SE"
+      },
+      destination: {
+        "code": "ZFD",
+        "name": "Farringdon",
+        "longitude": 0,
+        "latitude": 0,
+        "postcode": "EC1M 6BY",
+        "operator": "LT"
+      }
     }
   }
 
