@@ -47,7 +47,7 @@ class App extends React.Component {
           <Route exact path="/" render={ () => {
             return <DepartureBoard origin={this.state.origin.code} destination={this.state.destination.code} />
           }} />
-          <Route exact path="/:origin/:destination" component={this.departureBoard} />
+          <Route exact path="/:origin/:destination" component={App.departureBoard} />
         </Router>
 
         <Footer />
