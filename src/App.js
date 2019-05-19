@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Footer from './components/layout/footer/Footer'
 import Header from './components/layout/header/Header'
+import DepartureBoard from './components/departureBoard/DepartureBoard'
 
 class App extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class App extends React.Component {
 
     this.state = {
       origin: {
-        "code": "GNW",
+        "code": "LBG",
         "name": "Greenwich",
         "longitude": 0,
         "latitude": 0,
@@ -31,6 +32,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+        <DepartureBoard origin={this.state.origin} destination={this.state.destination} />
         <Footer />
       </div>
     );
